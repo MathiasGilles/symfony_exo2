@@ -13,7 +13,11 @@
         {% for category in categories  %}
             <tr>
                 <td>{{category.name}}</td>
-                <td>films</td>
+                <td>
+                    {% for film in category.series %}
+                        {{film|length}} films
+                    {% endfor %}
+                </td>
                 <td><a href="{{path('categorie_detail', {id: category.id})}}"><i
                         class="fas fa-info"></i></a></td>
             </tr>

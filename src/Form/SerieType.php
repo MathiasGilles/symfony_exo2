@@ -3,8 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Serie;
+use App\Entity\Categorie;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -19,6 +21,10 @@ class SerieType extends AbstractType
             ->add('yearOfStart')
             ->add('yearOfEnd')
             ->add('numberOfSeason')
+            ->add('category',EntityType::class,[
+                'class' => Categorie::class,
+                'choice_label' => 'name'
+            ])
             ->add('image', FileType::class, [
                 'label' => 'Upload Photo',
                 'mapped' => false,

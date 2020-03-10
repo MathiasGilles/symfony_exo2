@@ -51,6 +51,11 @@ class Serie
      */
     private $numberOfSeason;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="series")
+     */
+    private $category;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -112,6 +117,18 @@ class Serie
     public function setNumberOfSeason(int $numberOfSeason): self
     {
         $this->numberOfSeason = $numberOfSeason;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Categorie
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Categorie $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
