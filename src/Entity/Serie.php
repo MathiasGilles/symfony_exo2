@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SerieRepository")
@@ -18,16 +19,22 @@ class Serie
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull
+     * @Assert\NotBlank(message="You have to fill this input")
      */
     private $name;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="You have to fill this input")
+     * @Assert\Positive(message="a year can't be negative dummy")
+     * @Assert\NotNull(message="The serie have to start somewhere")
      */
     private $yearOfStart;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Assert\Positive(message="a year can't be negative dummy")
      */
     private $yearOfEnd;
 
@@ -38,6 +45,9 @@ class Serie
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="You have to fill this input")
+     * @Assert\Positive(message="a number of seasons can't be negative dummy")
+     * @Assert\NotNull(message="How a serie can't have at least one season ?")
      */
     private $numberOfSeason;
 
