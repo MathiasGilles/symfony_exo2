@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Series{% endblock %}
+
+{% block body %}
+
+{# Fragment du tableau des séries#}
+{{ render(path('_serie_table')) }}
+
+{# Fragment du tableau des catégories#}
+{{render(path('_categorie_table'))}}
+
+{% endblock %}

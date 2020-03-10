@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}{{serie.name}}{% endblock %}
+
+{% block body %}
+<div class="pt-3 mx-3">
+    <div class="p-3 border-light  card shadow">
+        <h2 class="mx-auto">{{serie.name}}</h2>
+        <p class="mx-auto">
+         {{serie.yearOfStart}} 
+         - 
+         {% if serie.yearOfEnd == 0 %}
+         En cours
+         {% else %}
+         {{serie.yearOfEnd}}
+         {% endif %}
+         
+        </p>
+        <p>
+            <h3>Info : </h3>
+
+            <p>
+                <a href="{{path('serie_edit', {id:serie.id})}}"><i
+                        class="far fa-edit"></i></a>
+                <a href="{{path('serie_delete', {id:serie.id})}}"><i
+                        class="fas fa-trash"></i></a>
+            </p>
+
+            <span>Nombre de saison : {{serie.numberOfSeason}}</span>
+            <span>Catégorie :</span>
+
+            <img src="{{asset('/uploads/'~ serie.image)}}"  alt="cover" style-"width:50px;height:100px;">
+            
+
+           
+
+        </p>
+    </div>
+</div>
+{% endblock %}

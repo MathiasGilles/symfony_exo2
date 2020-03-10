@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add a serie{% endblock %}
+
+{% block body%}
+
+{% if editTitle %}
+
+<h2>Update a serie</h2>
+
+{% else %}
+
+<h2>Add a serie</h2>
+
+{% endif %}
+
+{{form(formSerie)}}
+
+{% endblock %}

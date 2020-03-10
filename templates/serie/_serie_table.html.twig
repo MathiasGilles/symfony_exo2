@@ -1,0 +1,9 @@
+{% if series is not empty %}
+
+<div>Il y a {{series|length}} séries enregistrées. Cliquez <a href="{{path('serie')}}">Ici</a> pour toutes les voirs </div>
+
+{% else %}
+
+<p>There is no series</p>
+
+{% endif %}
