@@ -10,6 +10,17 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+
+        <!-- As a link -->
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="{{path('index')}}">Netflix</a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{path('serie')}}">Series</a>
+                </li>
+            </ul>
+        </nav>
+        
         <div class="container">
             {% for type,messages in app.flashes%}
             {% for message in messages %}

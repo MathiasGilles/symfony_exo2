@@ -30,11 +30,9 @@
             <span>Nombre de saison : {{serie.numberOfSeason}}</span>
             <span>Catégorie :</span>
 
+            {% if serie.image is not null %}
             <img src="{{asset('/uploads/'~ serie.image)}}"  alt="cover" style-"width:50px;height:100px;">
-            
-
-           
-
+            {% endif %}
         </p>
     </div>
 </div>

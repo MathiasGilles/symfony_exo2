@@ -1,15 +1,22 @@
-{% extends "base.html.twig" %}
-
-{% block body %}
-    
-
-{# 
-le nombre de catégories présentes dans la base de données,
-la liste des catégories présentes dans la base de données,
-un formulaire permettant de créer une catégorie.
-#}
-
 <div>Il y a {{categories|length}} categories enregistrées</div>
-<a href="#">+Create Category</a>
+<a href="{{path('categorie_new')}}">+Create Category</a>
 
-{% endblock %}
+<table class="table">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Nombre de film</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for category in categories  %}
+            <tr>
+                <td>{{category.name}}</td>
+                <td>films</td>
+                <td><a href="{{path('categorie_detail', {id: category.id})}}"><i
+                        class="fas fa-info"></i></a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

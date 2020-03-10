@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}{{categorie.name}}{% endblock %}
+
+{% block body %}
+<div class="pt-3 mx-3">
+    <div class="p-3 border-light  card shadow">
+        <h2 class="mx-auto">{{categorie.name}}</h2>
+        <p class="mx-auto">
+            <a href="{{path('categorie_edit', {id:categorie.id})}}"><i class="far fa-edit"></i></a>
+            <a href="{{path('categorie_delete', {id:categorie.id})}}"><i
+                    class="fas fa-trash"></i></a>
+
+        </p>
+    </div>
+</div>
+{% endblock %}
